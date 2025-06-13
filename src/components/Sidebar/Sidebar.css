@@ -1,0 +1,125 @@
+.sidebar{
+    min-height: 100vh;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f0f4f8;
+    padding: 25px 15px;
+}
+
+.sidebar img{
+    width: 20px;
+}
+
+.sidebar .menu{
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.sidebar .new-chat{
+    margin-top: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: #e6eaf1;
+    border-radius: 50px;
+    font-size: 14px;
+    color: grey;
+    cursor: pointer;
+}
+.sidebar .recent{
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1.5s;
+}
+.sidebar .recent-title{
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+}
+
+.sidebar .recent-entry{
+    display: flex;
+    align-items: start;
+    gap: 10px ;
+    padding: 10px;
+    padding-right: 40px;
+    border-radius: 50px;
+    color: #282828;
+    cursor: pointer;
+}
+
+
+.sidebar .recent-entry:hover{
+    background-color: #e2e6eb;
+    
+}
+
+.sidebar .bottom{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .bottom-item{
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+@media (max-width:600px){
+    .sidebar{
+        display: none;
+    }
+}
+/* Dark theme for sidebar */
+.sidebar.dark {
+  background-color: #1f1f1f;
+  color: white;
+}
+.sidebar.dark .top .menu img{
+    color: white;
+}
+
+
+.sidebar.dark .top p,
+.sidebar.dark .bottom p,
+.sidebar.dark .history p,
+.sidebar.dark .history-item p {
+  color: #ffffff;
+}
+
+.sidebar.dark .history-item:hover {
+  background-color: #2a2a2a;
+}
+/* Invert icons in dark mode */
+.sidebar.dark img {
+  filter: brightness(0) invert(1);
+}
+.listening-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  color: var(--text-color);
+  font-weight: bold;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.listening-indicator .pulse {
+  width: 20px;
+  height: 20px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
