@@ -7,7 +7,7 @@ import { GoogleGenAI } from '@google/genai';
 async function main(prompt) {
   // Initialize the client with your API key from environment variables
   const ai = new GoogleGenAI({
-    apiKey: "AIzaSyCOcvKXshxAi0MNFpVakrEGLRagzqgcq0U",
+    apiKey: process.env.GEMINI_API_KEY,
   });
 
   // Configuration for the response format
