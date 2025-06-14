@@ -8,11 +8,10 @@ async function main(prompt) {
   }
 
   const ai = new GoogleGenAI({
-<<<<<<< HEAD
-    apiKey: process.env.GEMINI_API_KEY,
-=======
+
+    
+
     apiKey,
->>>>>>> 04cb47e (Fix: Use import.meta.env for API key in browser)
   });
 
   const config = {
