@@ -53,7 +53,7 @@ const onSent = async (prompt) => {
             }
         }
 
-        let newResponse2 = newResponse.split("*").join("</br>");
+        let newResponse2 = newResponse.split("*").join("<br>");
         let newResponseArray = newResponse2.split(" ");
 
         for (let i = 0; i < newResponseArray.length; i++) {

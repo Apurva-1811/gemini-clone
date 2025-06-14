@@ -45,7 +45,7 @@ async function main(prompt) {
 }
 
 
-  return fullResponse;
+  return fullResponse || "";
 }
 
 export default main;
