@@ -39,8 +39,11 @@ async function main(prompt) {
 
   let fullResponse = "";
   for await (const chunk of response) {
+  if (chunk && typeof chunk.text === 'string') {
     fullResponse += chunk.text;
   }
+}
+
 
   return fullResponse;
 }
