@@ -1,24 +1,26 @@
-// To run this code, install dependencies:
-// npm install @google/genai mime
-// npm install -D @types/node  (optional for TS only)
-
 import { GoogleGenAI } from '@google/genai';
 
 async function main(prompt) {
-  // Initialize the client with your API key from environment variables
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+  if (!apiKey) {
+    throw new Error("API key is missing! Check your environment variable.");
+  }
+
   const ai = new GoogleGenAI({
+<<<<<<< HEAD
     apiKey: process.env.GEMINI_API_KEY,
+=======
+    apiKey,
+>>>>>>> 04cb47e (Fix: Use import.meta.env for API key in browser)
   });
 
-  // Configuration for the response format
   const config = {
     responseMimeType: 'text/plain',
   };
 
-  // Free Gemini model
   const model = 'gemma-3-27b-it';
 
-  // User input prompt - replace with your actual input
   const contents = [
     {
       role: 'user',
@@ -30,28 +32,18 @@ async function main(prompt) {
     },
   ];
 
-  // Call the model to generate a streamed response
   const response = await ai.models.generateContentStream({
     model,
     config,
     contents,
   });
 
-  // Print the streamed chunks as they arrive
-    let fileIndex = 0;
   let fullResponse = "";
+  for await (const chunk of response) {
+    fullResponse += chunk.text;
+  }
 
-for await (const chunk of response) {
-  fullResponse += chunk.text;
-  
+  return fullResponse;
 }
-
-console.log(fullResponse); 
-return fullResponse;// prints the entire response in one go
-
-}
-
-// Run the main function
-
 
 export default main;
